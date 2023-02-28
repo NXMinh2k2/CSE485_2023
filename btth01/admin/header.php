@@ -10,19 +10,19 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="../admin-home/index.php">Trang chủ</a>
+                        <a class="nav-link <?= str_contains($_SERVER['REQUEST_URI'], 'index.php') ? 'active fw-bold' : '' ?>" aria-current="page" href="../admin-home/index.php">Trang chủ</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../../index.php">Trang ngoài</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active fw-bold" href="../category/category.php">Thể loại</a>
-                    </li>
+                        <a class="nav-link <?= str_contains($_SERVER['REQUEST_URI'], 'category.php') ? 'active fw-bold' : '' ?>" href="../category/category.php">Thể loại</a>
+                    </li>   
                     <li class="nav-item">
-                        <a class="nav-link" href="../author/author.php">Tác giả</a>
+                        <a class="nav-link <?= str_contains($_SERVER['REQUEST_URI'], 'author.php') ? 'active fw-bold' : '' ?>" href="../author/author.php">Tác giả</a>
                     </li>
                     <li class="nav-item">   
-                        <a class="nav-link" href="../article/article.php">Bài viết</a>
+                        <a class="nav-link <?= str_contains($_SERVER['REQUEST_URI'], 'article.php') ? 'active fw-bold' : '' ?>" href="../article/article.php">Bài viết</a>
                     </li>
                 </ul>
                 </div>
