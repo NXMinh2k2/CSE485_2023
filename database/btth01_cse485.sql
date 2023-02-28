@@ -37,7 +37,7 @@ CREATE TABLE `baiviet` (
   `ma_tgia` int UNSIGNED NOT NULL,
   `ngayviet` datetime NOT NULL DEFAULT '2023-02-24 00:00:00',
   `hinhanh` varchar(200) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `baiviet`
@@ -350,7 +350,7 @@ CREATE TABLE `tacgia` (
   `ma_tgia` int UNSIGNED NOT NULL,
   `ten_tgia` varchar(100) NOT NULL,
   `hinh_tgia` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `tacgia`
@@ -375,7 +375,7 @@ INSERT INTO `tacgia` (`ma_tgia`, `ten_tgia`, `hinh_tgia`) VALUES
 CREATE TABLE `theloai` (
   `ma_tloai` int UNSIGNED NOT NULL,
   `ten_tloai` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `theloai`
