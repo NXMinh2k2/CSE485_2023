@@ -2,6 +2,11 @@
     require '../../includes/connectDB.php';
     require '../../includes/function.php';
 
+    $sql = "Select * from account";
+    $statement = $pdo->prepare($sql);
+    $statement->execute();
+    $memberUser = $statement->fetchAll();
+
     $sql = "Select * from baiviet";
     $statement = $pdo->prepare($sql);
     $statement->execute();
@@ -42,7 +47,7 @@
                         </h5>
 
                         <h5 class="h1 text-center">
-                            110
+                        <?= count($memberUser) ?>
                         </h5>
                     </div>
                 </div>
