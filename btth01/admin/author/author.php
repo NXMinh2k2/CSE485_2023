@@ -1,15 +1,22 @@
-<<<<<<< HEAD
 <?php 
     require '../../includes/connectDB.php';
     require '../../includes/function.php';
+
+    if(isset($_GET['ma_tgia'])){
+        $ma_tgia = $_GET['ma_tgia'];
+        $sqlDeleteBaiViet = "DELETE FROM baiviet WHERE ma_tgia=:ma_tgia";
+        pdo($pdo, $sqlDeleteBaiViet, ['ma_tgia' => $ma_tgia]);
+        
+        $sqlDeleteTacGia = "DELETE FROM tacgia WHERE ma_tgia=:ma_tgia;";
+        pdo($pdo, $sqlDeleteTacGia, ['ma_tgia' => $ma_tgia]);
+        header("Location: author.php");
+     }
 
     $sql = "Select ma_tgia, ten_tgia, hinh_tgia from tacgia";
     $statement = $pdo->prepare($sql);
     $statement->execute();
     $member = $statement->fetchAll();
 ?>
-=======
->>>>>>> origin/namphong
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,7 +57,7 @@
                                     <a href="edit_author.php?ma_tgia=<?= $author['ma_tgia'] ?>"><i class="fa-solid fa-pen-to-square"></i></a>
                                 </td>
                                 <td>
-                                    <a href=""><i class="fa-solid fa-trash"></i></a>
+                                    <a href="author.php?ma_tgia=<?= $author['ma_tgia'] ?>"><i class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>
                         <?php    }

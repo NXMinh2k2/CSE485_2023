@@ -2,10 +2,22 @@
    require '../../includes/connectDB.php';
    require '../../includes/function.php';
 
-   $sql = "Select ma_tloai, ten_tloai  from theloai";
-   $statement = $pdo->prepare($sql);
-   $statement->execute();
-   $member = $statement->fetchAll();
+   if(isset($_GET['ma_tloai'])){
+       $ma_tloai = $_GET['ma_tloai'];
+       $sqlDeleteBaiViet = "DELETE FROM baiviet WHERE ma_tloai=:ma_tloai";
+       pdo($pdo, $sqlDeleteBaiViet, ['ma_tloai' => $ma_tloai]);
+       
+       $sqlDeleteTheLoai = "DELETE FROM theloai WHERE ma_tloai=:ma_tloai;";
+       pdo($pdo, $sqlDeleteTheLoai, ['ma_tloai' => $ma_tloai]);
+       header("Location: category.php");
+    }
+    
+     // ------------------------
+
+    $sql = "Select ma_tloai, ten_tloai  from theloai";
+    $statement = $pdo->prepare($sql);
+    $statement->execute();
+    $member = $statement->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +57,7 @@
                                     <a href="edit_category.php?ma_tloai=<?= $type['ma_tloai'] ?>"><i class="fa-solid fa-pen-to-square"></i></a>
                                 </td>
                                 <td>
-                                    <a href="process_delete_category.php?ma_tloai=<?= $type['ma_tloai'] ?>"><i class="fa-solid fa-trash"></i></a>
+                                    <a href="category.php?ma_tloai=<?= $type['ma_tloai'] ?>"><i class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>
                         <?php    }
