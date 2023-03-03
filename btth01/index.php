@@ -1,11 +1,19 @@
 <?php 
     require 'includes/connectDB.php';
     require 'includes/function.php';
+<<<<<<< HEAD
 
+=======
+    session_start();
+>>>>>>> origin/namphong
     $sql = "Select hinhanh, ten_bhat, ma_bviet from baiviet";
     $statement = $pdo->prepare($sql);
     $statement->execute();
     $member = $statement->fetchAll();
+<<<<<<< HEAD
+=======
+    $admin = isset($_SESSION['admin_login'])?$_SESSION['admin_login']:'';
+>>>>>>> origin/namphong
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,9 +42,20 @@
                     <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="./">Trang chủ</a>
                     </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="./login.php">Đăng nhập</a>
-                    </li>
+                    <?php if ($admin==null) { ?>
+                        <li class="nav-item">
+
+                            <a class="nav-link active" href="./login.php">Đăng nhập</a>
+                        </li>
+                        <?php  }  ?>
+                        <?php if ($admin) { ?>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active">Hi <?= $admin['name'];?></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="logout.php" class="nav-link active">Logout</a>
+                        </li>
+                        <?php  }  ?>
                 </ul>
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Nội dung cần tìm" aria-label="Search">

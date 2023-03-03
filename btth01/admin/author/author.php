@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php 
     require '../../includes/connectDB.php';
     require '../../includes/function.php';
@@ -7,6 +8,8 @@
     $statement->execute();
     $member = $statement->fetchAll();
 ?>
+=======
+>>>>>>> origin/namphong
 <!DOCTYPE html>
 <html lang="en">
 <head>
