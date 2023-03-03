@@ -1,19 +1,12 @@
 <?php 
     require 'includes/connectDB.php';
     require 'includes/function.php';
-<<<<<<< HEAD
-
-=======
     session_start();
->>>>>>> origin/namphong
     $sql = "Select hinhanh, ten_bhat, ma_bviet from baiviet";
     $statement = $pdo->prepare($sql);
     $statement->execute();
     $member = $statement->fetchAll();
-<<<<<<< HEAD
-=======
     $admin = isset($_SESSION['admin_login'])?$_SESSION['admin_login']:'';
->>>>>>> origin/namphong
 ?>
 <!DOCTYPE html>
 <html lang="en">
